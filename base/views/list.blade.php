@@ -20,6 +20,16 @@
                         <img src="{{ $p['image'] }}" alt="">    
                     </td>
                     <td> {{ $p['category_id'] }} </td>
+                    <td>
+                        <a href="/admin/products/detail/{{ $p['id'] }}">Detail</a>
+                        <a href="">Edit</a>
+                        <a 
+                            href="/admin/products/delete/{{ $p['id'] }}"
+                            onclick="return confirm('Bạn có chắc không?')"    
+                        >
+                            Delete
+                        </a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -18,7 +18,12 @@ use App\Controllers\ProductController;
 $router->mount('/admin', function() use ($router) {
     $router->mount('/products', function() use ($router) {
         $router->get('/list', ProductController::class.'@index');
-        $router->get('/create', function() {});
+        //thêm mới
+        $router->get('/create', ProductController::class.'@create'); //hiển thị form thêm mới
+        $router->post('/store', ProductController::class.'@store'); //lưu dữ liệu vào db
+
+        $router->get('/detail/{id}', ProductController::class.'@detail'); //{id}: truyền id của bản ghi lên URL
+        $router->get('/delete/{id}', ProductController::class.'@delete');
     });
     $router->mount('/users', function() use ($router) {
         $router->get('/list', function() {});

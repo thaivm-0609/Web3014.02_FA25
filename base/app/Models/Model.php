@@ -36,7 +36,30 @@ class Model {
         $queryBuilder->select('*')
             ->from($this->table);
 
-        return $queryBuilder->fetchAllAssociative();
+        return $queryBuilder->fetchAllAssociative(); //lấy nhiều bản ghi
+    }
+
+    public function getDetail($id)
+    {
+        $queryBuilder = $this->connection->createQueryBuilder(); 
+        $queryBuilder->select('*')
+            ->from($this->table)
+            ->where('id = :id')
+            ->setParameter('id', $id); //gán giá trị của $id cho :id
+
+        return $queryBuilder->fetchAssociative(); //lấy 1 bản ghi duy nhất
+    }
+
+    public function delete($id)
+    {
+        return $this->connection->delete($this->table, ['id' => $id]);
+    }
+
+    public function store($data) 
+    {
+        $this->connection->insert($this->table, $data); 
+
+        return $this->connection->lastInsertId();
     }
 }
 
