@@ -13,4 +13,22 @@ if (!function_exists('view')) { //kiểm tra nếu chưa tồn tại hàm view
         echo $blade->run($view, $data); //hiển thị ra file giao diện
     }
 }
+
+if (!function_exists('redirect')) {
+    function redirect($path) {
+        header('location: '.$path);
+        exit;
+    }
+}
+
+if (!function_exists('file_url')) {
+    function file_url($path) {
+        if (!file_exists($path)) {
+            return null;
+        }
+
+        return $_ENV['APP_URL'].$path;
+    }
+}
+
 ?>

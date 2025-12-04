@@ -17,7 +17,7 @@
                     <td> {{ $p['name'] }} </td>
                     <td> {{ $p['price'] }} </td>
                     <td> 
-                        <img src="{{ $p['image'] }}" alt="">    
+                        <img src="{{ file_url('storages/uploads/products/'.$p['image']) }}" alt="">    
                     </td>
                     <td> {{ $p['category_id'] }} </td>
                     <td>

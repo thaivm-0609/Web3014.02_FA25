@@ -3,6 +3,7 @@
     <form 
         action="/admin/products/store"
         method="POST"
+        enctype="multipart/form-data"
     >
         <div>
             <label for="">Name</label>
@@ -14,7 +15,7 @@
         </div>
         <div>
             <label for="">Image</label>
-            <input type="text" name="image">
+            <input type="file" name="image">
         </div>
         <div>
             <label for="">Category</label>
