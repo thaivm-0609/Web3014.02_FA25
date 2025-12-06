@@ -61,6 +61,11 @@ class Model {
 
         return $this->connection->lastInsertId();
     }
+
+    public function update($id, $data)
+    {
+        return $this->connection->update($this->table, $data, ['id' => $id]);
+    }
 }
 
 ?>

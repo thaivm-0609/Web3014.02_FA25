@@ -1,6 +1,8 @@
 <?php
 //require (nhúng) những file cần thiết cho dự án
 
+session_start();
+
 use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';

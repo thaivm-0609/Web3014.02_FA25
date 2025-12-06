@@ -22,6 +22,10 @@ $router->mount('/admin', function() use ($router) {
         $router->get('/create', ProductController::class.'@create'); //hiển thị form thêm mới
         $router->post('/store', ProductController::class.'@store'); //lưu dữ liệu vào db
 
+        //chỉnh sửa
+        $router->get('/edit/{id}', ProductController::class.'@edit');
+        $router->post('update/{id}', ProductController::class.'@update');
+
         $router->get('/detail/{id}', ProductController::class.'@detail'); //{id}: truyền id của bản ghi lên URL
         $router->get('/delete/{id}', ProductController::class.'@delete');
     });

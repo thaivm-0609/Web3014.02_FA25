@@ -32,5 +32,16 @@ class Controller {
     
         throw new \Exception('Lỗi upload file');
     }
+
+    //khai báo hàm validate dữ liệu
+    public function validate($validator, $data, $rules) {
+        $validation = $validator->make($data, $rules);
+        $validation->validate(); //gọi hàm validate trong thư viện rakit/validation 
+        if ($validation->fails()) { //nếu như dữ liệu không hợp lệ
+            return $validation->errors()->firstOfAll();
+        }
+
+        return [];
+    }
 }
 ?>

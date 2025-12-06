@@ -21,6 +21,13 @@ if (!function_exists('redirect')) {
     }
 }
 
+if (!function_exists('redirect404')) {
+    function redirect404() {
+        header('HTTP/1.1 404 Not found');
+        exit;
+    }
+}
+
 if (!function_exists('file_url')) {
     function file_url($path) {
         if (!file_exists($path)) {
